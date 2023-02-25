@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.3">
+  <object class="tk.Toplevel" id="main_window" named="True">
+    <property name="height">500</property>
+    <property name="padx">2</property>
+    <property name="pady">4</property>
+    <property name="relief">sunken</property>
+    <property name="title" translatable="yes">Excel数据分组</property>
+    <property name="width">800</property>
+    <child>
+      <object class="ttk.Labelframe" id="frame1" named="True">
+        <property name="height">500</property>
+        <property name="padding">5</property>
+        <property name="text" translatable="yes">文件选择</property>
+        <property name="width">800</property>
+        <layout manager="pack">
+          <property name="expand">false</property>
+          <property name="fill">x</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Label" id="label3">
+            <property name="padding">0 0 5 0</property>
+            <property name="text" translatable="yes">Excel文件路径:</property>
+            <layout manager="pack">
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Entry" id="excel_path" named="True">
+            <property name="state">normal</property>
+            <property name="width">80</property>
+            <layout manager="pack">
+              <property name="expand">true</property>
+              <property name="fill">x</property>
+              <property name="padx">0 5</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="file_select" named="True">
+            <property name="text" translatable="yes">...</property>
+            <property name="width">3</property>
+            <layout manager="pack">
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="frame7">
+        <property name="height">100</property>
+        <property name="padding">5 10 5 5</property>
+        <property name="width">800</property>
+        <layout manager="pack">
+          <property name="fill">x</property>
+          <property name="padx">0</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Label" id="label4">
+            <property name="padding">0 0 5 0</property>
+            <property name="text" translatable="yes">分组列:</property>
+            <layout manager="pack">
+              <property name="fill">x</property>
+              <property name="padx">0</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="split_button" named="True">
+            <property name="text" translatable="yes">拆分</property>
+            <property name="width">6</property>
+            <layout manager="pack">
+              <property name="side">right</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="preview_button" named="True">
+            <property name="text" translatable="yes">预览</property>
+            <property name="width">6</property>
+            <layout manager="pack">
+              <property name="padx">0 5</property>
+              <property name="side">right</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Combobox" id="column_box" named="True">
+            <property name="width">90</property>
+            <layout manager="pack">
+              <property name="expand">true</property>
+              <property name="fill">x</property>
+              <property name="padx">0 5</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Separator" id="separator2">
+        <property name="orient">horizontal</property>
+        <layout manager="pack">
+          <property name="fill">x</property>
+          <property name="pady">5 0</property>
+          <property name="side">top</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="frame8">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="pack">
+          <property name="expand">true</property>
+          <property name="fill">x</property>
+          <property name="pady">5 0</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Treeview" id="files_treeview" named="True">
+            <property name="selectmode">extended</property>
+            <layout manager="pack">
+              <property name="expand">true</property>
+              <property name="fill">x</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Separator" id="separator1">
+        <property name="orient">horizontal</property>
+        <layout manager="pack">
+          <property name="expand">true</property>
+          <property name="fill">x</property>
+          <property name="side">top</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="frame2">
+        <property name="width">200</property>
+        <layout manager="pack">
+          <property name="expand">true</property>
+          <property name="fill">x</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Button" id="mail_button" named="True">
+            <property name="text" translatable="yes">发送邮件</property>
+            <layout manager="pack">
+              <property name="pady">5 0</property>
+              <property name="side">right</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="pygubu.builder.widgets.dialog" id="data_dialog" named="True">
+    <property name="geometry">1024x576</property>
+    <property name="height">500</property>
+    <property name="modal">true</property>
+    <property name="resizable">both</property>
+    <property name="title" translatable="yes">数据分组预览</property>
+    <property name="width">800</property>
+    <child>
+      <object class="ttk.Frame" id="frame_group" named="True">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="pack">
+          <property name="expand">true</property>
+          <property name="fill">both</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Treeview" id="group_data_treeview" named="True">
+            <property name="selectmode">extended</property>
+            <layout manager="pack">
+              <property name="expand">true</property>
+              <property name="fill">both</property>
+              <property name="side">top</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
